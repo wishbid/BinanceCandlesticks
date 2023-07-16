@@ -29,23 +29,19 @@ def main():
     })
 
     symbol = args.symbol
-    timeframe = args.timeframe  # 1 minute
-
+    timeframe = args.timeframe
     start = dateparser.parse(args.start_time)
     end = dateparser.parse(args.end_time)
+
+    print(f'Running for pair({symbol}), timeframe({timeframe})')
     print(f'Start: \t{arrow.get(start)}')
     print(f'End: \t{arrow.get(end)}')
 
-    start_timestamp = int(start.timestamp())
-    end_timestamp = int(end.timestamp())
-
-    since = start_timestamp * 1000
-    end = end_timestamp * 1000
+    since = int(start.timestamp()) * 1000
+    end = int(end.timestamp()) * 1000
 
     data = []
-
     # Loop over the time range and fetch OHLCV data
-
     while since < end:
         try:
             ohlcv = exchange.fetch_ohlcv(symbol, timeframe, since, limit=1500)
