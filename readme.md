@@ -4,7 +4,7 @@ This script allows you to fetch historical cryptocurrency data from Binance. You
 
 If you use this script, please feel free to modify it and submit pull requests.
 
-https://accounts.binance.com/register?ref=19776079
+[Binance] (https://accounts.binance.com/register?ref=19776079) 
 
 ## Usage
 
