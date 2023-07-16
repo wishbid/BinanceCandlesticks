@@ -47,6 +47,7 @@ def main():
             ohlcv = exchange.fetch_ohlcv(symbol, timeframe, since, limit=1500)
             print(f'Last time received {arrow.get(ohlcv[-1][0])}')
             if len(ohlcv) == 0:
+                print(f'Message received for {arrow.get(ohlcv[-1][0])} is empty')
                 break
             data.extend(ohlcv)
             since = ohlcv[-1][0] + 1  # get start timestamp of next minute
