@@ -2,6 +2,8 @@
 
 This script allows you to fetch historical cryptocurrency data from Binance. You can specify the symbol pair, the timeframe, and the start and end times to gather data. The data is saved as a JSON file.
 
+If you use this script, please feel free to modify it and submit pull requests.
+
 https://accounts.binance.com/register?ref=19776079
 
 ## Dependencies
