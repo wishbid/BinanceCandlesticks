@@ -6,15 +6,12 @@ If you use this script, please feel free to modify it and submit pull requests.
 
 https://accounts.binance.com/register?ref=19776079
 
-## Dependencies
-
-Please install these before use.
+## Usage
 
 ```
+git clone https://github.com/wishbid/BinanceCandlesticks.git
 pip install ccxt arrow dateparser
 ```
-
-## Usage
 
 ```
 python <script_name>.py -s <start_time> -e <end_time> -x <symbol> -t <timeframe>
