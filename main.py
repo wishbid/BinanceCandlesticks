@@ -36,21 +36,25 @@ def main():
     since = int(start.timestamp()) * 1000
     end = int(end.timestamp()) * 1000
 
-    print(f'Running for pair({symbol}), timeframe({timeframe})')
-    print(f'Start: \t{arrow.get(start)}')
-    print(f'End: \t{arrow.get(end)}')
+    print(f'Symbol: \t({symbol})\n'
+          f'Timeframe: \t({timeframe})\n'
+          f'Start: \t\t{arrow.get(start)}\n'
+          f'End: \t\t{arrow.get(end)}')
 
     data = []
     # Loop over the time range and fetch OHLCV data
     while since < end:
         try:
             ohlcv = exchange.fetch_ohlcv(symbol, timeframe, since, limit=1500)
-            print(f'Last time received {arrow.get(ohlcv[-1][0])}')
-            if len(ohlcv) == 0:
-                print(f'Message received for {arrow.get(ohlcv[-1][0])} is empty')
+            print(f'Received from: {arrow.get(ohlcv[0][0])} to {arrow.get(ohlcv[-1][0])}')
+
+            if ohlcv[0][0] > end:
+                print('Start time is greater than end time')
                 break
+
             data.extend(ohlcv)
             since = ohlcv[-1][0] + 1  # get start timestamp of next minute
+
         except Exception as e:
             print(f'Fetch failed: {e}')
             break
