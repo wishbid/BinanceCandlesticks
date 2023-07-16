@@ -38,15 +38,15 @@ def main():
 
     print(f'Symbol: \t({symbol})\n'
           f'Timeframe: \t({timeframe})\n'
-          f'Start: \t\t{arrow.get(start)}\n'
-          f'End: \t\t{arrow.get(end)}')
+          f'Start: \t\t{arrow.get(start).format()}\n'
+          f'End: \t\t{arrow.get(end).format()}')
 
     data = []
     # Loop over the time range and fetch OHLCV data
     while since < end:
         try:
             ohlcv = exchange.fetch_ohlcv(symbol, timeframe, since, limit=1500)
-            print(f'Received from: {arrow.get(ohlcv[0][0])} to {arrow.get(ohlcv[-1][0])}')
+            print(f'Received candlesticks from: { arrow.get(ohlcv[0][0]).format() } to { arrow.get(ohlcv[-1][0]).format() }')
 
             if ohlcv[0][0] > end:
                 print('Start time is greater than end time')
