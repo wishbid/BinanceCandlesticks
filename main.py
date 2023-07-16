@@ -1,3 +1,5 @@
+import datetime
+
 import ccxt
 import json
 import arrow
@@ -32,6 +34,7 @@ def main():
     timeframe = args.timeframe
     start = dateparser.parse(args.start_time)
     end = dateparser.parse(args.end_time)
+    end = end if end < datetime.datetime.now() else datetime.datetime.now()
 
     since = int(start.timestamp()) * 1000
     end = int(end.timestamp()) * 1000
@@ -46,7 +49,13 @@ def main():
     while since < end:
         try:
             ohlcv = exchange.fetch_ohlcv(symbol, timeframe, since, limit=1500)
-            print(f'Received candlesticks from: { arrow.get(ohlcv[0][0]).format() } to { arrow.get(ohlcv[-1][0]).format() }')
+
+            if not ohlcv:
+                print('Message empty')
+                break
+
+            print(
+                f'Received candlesticks from: {arrow.get(ohlcv[0][0]).format()} to {arrow.get(ohlcv[-1][0]).format()}')
 
             if ohlcv[0][0] > end:
                 print('Start time is greater than end time')
