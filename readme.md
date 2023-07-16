@@ -19,7 +19,7 @@ python main.py -s <start_time> -e <end_time> -x <symbol> -t <timeframe>
 
 ### Arguments
 
-- `-s`, `--start_time`: Start time of the range for which you want the historical data. You can use pretty much any format you want, e.g. ("YYYY.MM.DD", "YYYY.mm.dd HH:MM:SS")
+- `-s`, `--start_time`: Start time of the range for which you want the historical data. You can use pretty much any format you want, e.g. ("YYYY.mm.dd", "YYYY.mm.dd HH:MM:SS")
 - `-e`, `--end_time`: End time of the range for which you want the historical data.
 - `-x`, `--symbol`: The trading symbol pair, e.g., "BTC/USDT", "ETH/USDT".
 - `-t`, `--timeframe`: The timeframe for the data. Options are '1m', '3m', '5m', '15m', '30m', '1h', '4h', '8h', '12h', '1d', '1w', '1M'.
