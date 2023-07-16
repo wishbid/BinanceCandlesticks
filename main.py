@@ -33,12 +33,12 @@ def main():
     start = dateparser.parse(args.start_time)
     end = dateparser.parse(args.end_time)
 
+    since = int(start.timestamp()) * 1000
+    end = int(end.timestamp()) * 1000
+
     print(f'Running for pair({symbol}), timeframe({timeframe})')
     print(f'Start: \t{arrow.get(start)}')
     print(f'End: \t{arrow.get(end)}')
-
-    since = int(start.timestamp()) * 1000
-    end = int(end.timestamp()) * 1000
 
     data = []
     # Loop over the time range and fetch OHLCV data
