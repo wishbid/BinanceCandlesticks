@@ -14,7 +14,7 @@ pip install ccxt arrow dateparser
 ```
 
 ```
-python <script_name>.py -s <start_time> -e <end_time> -x <symbol> -t <timeframe>
+python main.py -s <start_time> -e <end_time> -x <symbol> -t <timeframe>
 ```
 
 ### Arguments
@@ -29,7 +29,7 @@ python <script_name>.py -s <start_time> -e <end_time> -x <symbol> -t <timeframe>
 ### Example
 
 ```
-python <script_name>.py -s "2023.01.01" -e "2023.07.16" -x "BTC/USDT" -t "1h"
+python main.py -s "2023.01.01" -e "2023.07.16" -x "BTC/USDT" -t "1h"
 ```
 
 This will fetch the historical OHLCV data for the BTC/USDT pair from 1st January 2023 to 16th July 2023 in 1-hour timeframes and save it to a file named 'btc_usdt_data.json'.
