@@ -9,11 +9,10 @@ https://accounts.binance.com/register?ref=19776079
 ## Dependencies
 
 Please install these before use.
-- ccxt
-- json
-- arrow
-- argparse
-- dateparser
+
+```
+pip install ccxt arrow dateparser
+```
 
 ## Usage
 
